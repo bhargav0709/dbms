@@ -1,0 +1,130 @@
+
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.108.0">
+    <title>Signin</title>
+    <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/"> -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <style>
+        .customcard{
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+    </head>
+    <body class="text-center">
+    {% include 'hostel/navbar.html' %}
+    <main class="form-signin w-100 m-auto container">
+      {% include 'hostel/message.html' %}
+      <h2 style="margin-top: 5px;">Book Hostel</h2>
+      <form action="" method="POST">
+        {% csrf_token %}
+      <div class="mb-3 row">
+        <label for="staticStudentId" class="col-sm-2 col-form-label">Student ID</label>
+        <div class="col-sm-10">
+          <input type="text" name="student_id" readonly class="form-control-plaintext" id="staticStudentId" value="{{request.user.student_id}}">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+          <input type="text" name="student_email" readonly class="form-control-plaintext" id="staticEmail" value="{{request.user.email}}">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-10">
+          <input type="text" name="student_name" class="form-control" id="inputName" required>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="inputBranch" class="col-sm-2 col-form-label">Branch</label>
+        <div class="col-sm-10">
+          <input type="text" name="student_branch" class="form-control" id="inputBranch" required>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="inputPhone" class="col-sm-2 col-form-label">Phone</label>
+        <div class="col-sm-10">
+          <input type="text" name="student_phone" class="form-control" id="inputPhone" required>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="inputAge" class="col-sm-2 col-form-label">Age</label>
+        <div class="col-sm-10">
+          <input type="text" name="student_age" class="form-control" id="inputAge" required>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="inputFatherName" class="col-sm-2 col-form-label">Father's Name</label>
+        <div class="col-sm-10">
+          <input type="text" name="father_name" class="form-control" id="inputFatherName" required>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="inputMotherName" class="col-sm-2 col-form-label">Mother's Name</label>
+        <div class="col-sm-10">
+          <input type="text" name="mother_name" class="form-control" id="inputMotherName" required>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="inputFatherPhone" class="col-sm-2 col-form-label">Father's Phone</label>
+        <div class="col-sm-10">
+          <input type="text" name="father_phone" class="form-control" id="inputFatherPhone" required>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="inputMotherPhone" class="col-sm-2 col-form-label">Mother's Phone</label>
+        <div class="col-sm-10">
+          <input type="text" name="mother_phone" class="form-control" id="inputMotherPhone" required>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="inputArea" class="col-sm-2 col-form-label">Address Area</label>
+        <div class="col-sm-10">
+          <input type="text" name="address_area" class="form-control" id="inputArea" required>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="inputCity" class="col-sm-2 col-form-label">City</label>
+        <div class="col-sm-10">
+          <input type="text" name="address_city" class="form-control" id="inputCity" required>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="inputState" class="col-sm-2 col-form-label">State</label>
+        <div class="col-sm-10">
+          <input type="text" name="address_state" class="form-control" id="inputState" required>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="inputMedical" class="col-sm-2 col-form-label">Medical Status</label>
+        <div class="col-sm-10">
+          <input type="text" name="medical_status" class="form-control" id="inputMedical" placeholder="Optional">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="inputSeater" class="col-sm-2 col-form-label">Room Seater</label>
+        <div class="col-sm-10">
+          <input type="text" name="room_seater" class="form-control" id="inputSeater" required>
+          <div>
+            <strong> *Available Room Seaters: {% for i in hostel.room_seaters %} | {{i.capacity}} | {% endfor %} </strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-grid gap-2" style="margin-bottom: 14px;">
+        <button class="btn btn-primary" type="submit">Book Now</button>
+      </div>
+    </form>
+</main>
+</body>
+</html>

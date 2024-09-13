@@ -1,0 +1,48 @@
+
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.108.0">
+    <title>Signin</title>
+    <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/"> -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <style>
+        .customcard{
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+    </head>
+    <body class="text-center">
+    {% include 'hostel/navbar.html' %}
+    <main class="form-signin w-100 m-auto">
+        <h2 style="margin-top: 8px;">HOSTELS</h2>
+        <div class="row row-cols-3 row-cols-md-4 g-5" style="margin: 5px;">
+        {% for i in hostel_list %}
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                    <h5 class="card-title">{{i.hostel_name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">For: {{i.hostel_type}}</h6>
+                    <p class="card-text">Seaters Available: {% for j in i.room_seaters %} | {{j.capacity}} | {% endfor %}
+                    </p>
+                    <!-- <a href="#" class="card-link">Card link</a> -->
+                    <a href="{% url 'book' i.hostel_name %}" class="card-link">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+</main>
+
+
+    
+</body>
+</html>

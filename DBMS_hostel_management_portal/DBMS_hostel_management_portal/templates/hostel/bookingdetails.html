@@ -1,0 +1,190 @@
+
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.108.0">
+    <title>Signin</title>
+    <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/"> -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <style>
+        .customcard{
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+    </head>
+    <body class="text-center">
+    {% include 'hostel/navbar.html' %}
+    <main class="form-signin w-100 m-auto container">
+<div class="accordion" id="accordionExample" style="margin-top: 20px;">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <h2>Booking Details</h2>
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne">
+      <div class="accordion-body">
+        <div class="mb-3 row">
+            <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Email</strong></label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{request.user.email}}">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="staticStdID" class="col-sm-2 col-form-label"><strong>Student ID</strong></label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control-plaintext" id="staticStdID" value="{{student.student_id}}">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="staticHostel" class="col-sm-2 col-form-label"><strong>Hostel</strong></label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control-plaintext" id="staticHostel" value="{{student.hostel.hostel_name}}">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="staticroomno" class="col-sm-2 col-form-label"><strong>Room No</strong></label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control-plaintext" id="staticroomno" value="{{student.room.room_name}}">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="staticSeater" class="col-sm-2 col-form-label"><strong>Seater</strong></label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control-plaintext" id="staticSeater" value="{{student.room.capacity}}">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="staticBooking" class="col-sm-2 col-form-label"><strong>Booking Status</strong></label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control-plaintext" id="staticBooking" value="{{student.status}}">
+            </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="staticFee" class="col-sm-2 col-form-label"><strong>Fee Status</strong></label>
+          <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="staticFee" value="{{fees.fees_status}}">
+          </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <h2>Personal Details</h2>
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" >
+      <div class="accordion-body">
+        <div class="border mb-3 row">
+            <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Email</strong></label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{request.user.email}}">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="staticStdID" class="col-sm-2 col-form-label"><strong>Student ID</strong></label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control-plaintext" id="staticStdID" value="{{student.student_id}}">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="staticName" class="col-sm-2 col-form-label"><strong>Student Name</strong></label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control-plaintext" id="staticName" value="{{student.student_name}}">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="staticFather" class="col-sm-2 col-form-label"><strong>Father Name</strong></label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control-plaintext" id="staticFather" value="{{parent.father_name}}">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="staticMother" class="col-sm-2 col-form-label"><strong>Mother Name</strong></label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control-plaintext" id="staticMother" value="{{parent.mother_name}}">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="staticFathersNo" class="col-sm-2 col-form-label"><strong>Father's Phone</strong></label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control-plaintext" id="staticFathersNo" value="{{parent.father_phone}}">
+            </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="staticMotherNo" class="col-sm-2 col-form-label"><strong>Mother's Phone</strong></label>
+          <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="staticMotherNo" value="{{parent.mother_phone}}">
+          </div>
+      </div>
+        <div class="mb-3 row">
+            <label for="staticBranch" class="col-sm-2 col-form-label"><strong>Student Branch</strong></label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control-plaintext" id="staticBranch" value="{{student.student_branch}}">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="staticPhone" class="col-sm-2 col-form-label"><strong>Student Phone</strong></label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control-plaintext" id="staticPhone" value="{{student.student_phone}}">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="staticAge" class="col-sm-2 col-form-label"><strong>Student Age</strong></label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control-plaintext" id="staticAge" value="{{student.student_age}}">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="staticMedical" class="col-sm-2 col-form-label"><strong>Medical Status</strong></label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control-plaintext" id="staticMedical" value="{{student.medical_status}}">
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+        <h2>Address</h2>
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree">
+      <div class="accordion-body">
+        <div class="mb-3 row">
+          <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Area</strong></label>
+          <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{student.address_area}}">
+          </div>
+      </div>
+      <div class="mb-3 row">
+          <label for="staticStdID" class="col-sm-2 col-form-label"><strong>City</strong></label>
+          <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="staticStdID" value="{{student.address_city}}">
+          </div>
+      </div>
+      <div class="mb-3 row">
+          <label for="staticHostel" class="col-sm-2 col-form-label"><strong>State</strong></label>
+          <div class="col-sm-10">
+            <input type="text" readonly class="form-control-plaintext" id="staticHostel" value="{{student.address_state}}">
+          </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
